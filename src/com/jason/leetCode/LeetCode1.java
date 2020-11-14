@@ -14,7 +14,7 @@ import java.util.stream.Stream;
  * 链接：https://leetcode-cn.com/problems/two-sum
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
-public class Test1 {
+public class LeetCode1 {
     static class Solution {
         public static int[] twoSum(int[] nums, int target) {
             Map<Integer, Integer> map = new HashMap<Integer, Integer>();
