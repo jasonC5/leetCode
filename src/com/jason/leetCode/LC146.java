@@ -88,6 +88,7 @@ public class LC146 {
                     Node bottom = tail.prov;
                     nodeMap.remove(bottom.key);
                     removeNode(bottom);
+                    bottom = null;
                     nodeMap.put(key, node);
                     putNode2Top(node);
                 }
@@ -107,7 +108,7 @@ public class LC146 {
             Node nodeProv = node.prov;
             nodeNext.prov = nodeProv;
             nodeProv.next = nodeNext;
-            node = null;
+            // node = null; 不能在这删，移动的时候会有问题（也不影响，形参实参……）
         }
         //移动一个Node到头部（删除+挂载头部）
         public void movNode2Top(Node node){
