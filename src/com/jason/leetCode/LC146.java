@@ -96,7 +96,7 @@ public class LC146 {
         }
         //挂载一个node到头部
         public void putNode2Top(Node node){
-            Node oldTop = head.next;//旧头部
+            Node oldTop = head.next;//旧 头部
             head.next = node;//成为新的头部
             node.prov = head;
             node.next = oldTop;//头部的下一个，挂上旧的头部
