@@ -1,4 +1,4 @@
-package com.jason;
+package com.jason.leetCode;
 
 /**
  * @author JasonC5
