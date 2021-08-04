@@ -34,27 +34,20 @@ package com.jason.leetCode;
  */
 public class LC009 {
 
-    public boolean isPalindrome(int x) {
+    public static void main(String[] args) {
+        System.out.println(isPalindrome(2));
+    }
+
+    public static boolean isPalindrome(int x) {
         if (x < 0) {
             return false;
-        } else if (x < 10) {
-            return true;
         }
-        //1.找到最高位
-        int maskL = 1, maskR = 1;
-        //
-        while (maskL < x) {
-            maskL *= 10;
+        int tmp = x;
+        int flip = 0;
+        while (tmp > 0) {
+            flip = flip * 10 + tmp % 10;
+            tmp = tmp / 10;
         }
-        while (maskL > maskR) {
-//            int l = (x );
-//            int r = ;
-//            if (l != r) {
-//                return false;
-//            }
-            maskL /= 10;
-            maskR *= 10;
-        }
-        return true;
+        return flip == x;
     }
 }
