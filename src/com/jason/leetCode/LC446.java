@@ -1,5 +1,9 @@
 package com.jason.leetCode;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 /**
  * 给你一个整数数组 nums ，返回 nums 中所有 等差子序列 的数目。
  * <p>
@@ -20,12 +24,31 @@ package com.jason.leetCode;
  */
 public class LC446 {
     public static void main(String[] args) {
-
+        int[] nums = {2, 4, 6, 8, 10};
+        System.out.println(numberOfArithmeticSlices(nums));
     }
 
     public static int numberOfArithmeticSlices(int[] nums) {
-
-        return 0;
+        if (nums.length < 3) {
+            return 0;
+        }
+        int ans = 0;
+        int length = nums.length;
+        Map<Long, Integer>[] dp = new Map[length];
+        for (int i = 0; i < length; i++) {
+            //已i结尾的子数组
+            dp[i] = new HashMap<>();
+            for (int j = 0; j < i; j++) {
+                //i和j的差值
+                long sur = (long) nums[i] - nums[j];
+                //在j的位置上的时候，有没有相同的等差
+                Integer count = dp[j].getOrDefault(sur, 0);
+                //有几个就能组成几个等差子数组
+                ans += count;
+                dp[i].put(sur, dp[i].getOrDefault(sur, 0) + count + 1);
+            }
+        }
+        return ans;
     }
 
 
