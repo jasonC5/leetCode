@@ -43,7 +43,9 @@ public class LC447 {
         long[][] instanceSquare = new long[length][length];
         for (int i = 1; i < length; i++) {
             for (int j = 0; j < i; j++) {
-                instanceSquare[i][j] = instanceSquare[j][i] = instance(points, i, j);
+                if(instanceSquare[i][j] == 0){
+                    instanceSquare[i][j] = instanceSquare[j][i] = instance(points, i, j);
+                }
             }
         }
         //每一行上面相同的元素有几个--每个点，对其他点的距离的平方
