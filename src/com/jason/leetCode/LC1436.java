@@ -45,7 +45,7 @@ public class LC1436 {
         for (List<String> path : paths) {
             map.put(path.get(0), path.get(1));
         }
-        String city = paths.get(0).get(0);1
+        String city = paths.get(0).get(0);
         String next = paths.get(0).get(1);
         while (next != null) {
             city = next;
