@@ -3,7 +3,7 @@ package com.jason.jingsai.double72;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Code3 {
+public class C5998 {
     public List<Long> maximumEvenSplit(long finalSum) {
         List<Long> ans = new ArrayList<>();
         if ((finalSum & 1) == 1) {

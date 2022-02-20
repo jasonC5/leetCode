@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Code1 {
+public class C5996 {
     public int countPairs(int[] nums, int k) {
         Map<Integer, List<Integer>> map = new HashMap<>();
         for (int i = 0; i < nums.length; i++) {
@@ -32,7 +32,7 @@ public class Code1 {
 
     public static void main(String[] args) {
         int[] nums = new int[]{3, 1, 2, 2, 2, 1, 3};
-        System.out.println(new Code1().countPairs(nums, 2));
+        System.out.println(new C5996().countPairs(nums, 2));
 
     }
 }

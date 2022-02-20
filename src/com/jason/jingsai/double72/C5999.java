@@ -3,7 +3,7 @@ package com.jason.jingsai.double72;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Code4 {
+public class C5999 {
     public long goodTriplets1(int[] nums1, int[] nums2) {
         // 相当于在num1 和 nums2 画三条不相交的线
         Map<Integer, Integer> nums2Idx = new HashMap<>();
@@ -77,7 +77,7 @@ public class Code4 {
 
     public static void main(String[] args) {
         int[] nums1 = {4, 0, 1, 3, 2}, nums2 = {4, 1, 0, 2, 3};
-        System.out.println(new Code4().goodTriplets(nums1, nums2));
+        System.out.println(new C5999().goodTriplets(nums1, nums2));
     }
 
 }
