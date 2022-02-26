@@ -88,10 +88,11 @@ public class LC10 {
     public static void main(String[] args) {
 //        String s = "aab", p = "c*a*b";
 //        String s = "mississippi", p = "mis*is*p*.";
-//        String s = "a", p = "ab*";
-        String s = "bcbabcaacacbcabac",
-                p = "a*c*a*b*.*aa*c*a*a*";
+        String s = "a", p = "ab*";
+//        String s = "bcbabcaacacbcabac",
+//                p = "a*c*a*b*.*aa*c*a*a*";
         System.out.println(isMatch(s, p));
+        System.out.println(isMatch1(s, p));
     }
     //动态规划
 //    public static boolean isMatch2(String s, String p) {
@@ -101,4 +102,48 @@ public class LC10 {
 //
 ////        return check2(scs, pcs, si, pi);
 //    }
+
+    public static boolean isMatch1(String s, String p) {
+        char[] scs = s.toCharArray();
+        char[] pcs = p.toCharArray();
+        boolean[][] dp = new boolean[scs.length + 1][pcs.length + 1];
+        dp[scs.length][pcs.length] = true;
+        for (int pi = pcs.length - 1; pi >= 0; pi--) {
+            if (pi < pcs.length - 1 && pcs[pi + 1] == '*') {
+                dp[scs.length][pi] = dp[scs.length][pi + 2];
+            } else if (pi < pcs.length && pcs[pi] == '*') {
+                dp[scs.length][pi] = dp[scs.length][pi + 1];
+            } else {
+                dp[scs.length][pi] = false;
+            }
+        }
+        for (int si = scs.length - 1; si >= 0; si--) {
+            for (int pi = pcs.length - 1; pi >= 0; pi--) {
+                if (scs[si] == pcs[pi] || pcs[pi] == '.') {
+                    boolean p1 = dp[si + 1][pi + 1];
+                    boolean p2 = false;
+                    if (pi < pcs.length - 1 && pcs[pi + 1] == '*') {
+                        p2 = dp[si][pi + 2];
+                    }
+                    dp[si][pi] = p1 || p2;
+                } else {
+                    if (pcs[pi] == '*') {//0个或多个前面的字符
+                        boolean p1 = dp[si][pi + 1];//不匹配，0个
+                        boolean p2 = false;
+                        boolean p3 = false;
+                        if (pcs[pi - 1] == scs[si] || pcs[pi - 1] == '.') {
+                            p2 = dp[si + 1][pi + 1];//匹配一个
+                            p3 = dp[si + 1][pi];//匹配多个
+                        }
+                        dp[si][pi] = p1 || p2 || p3;
+                    } else if (pi < pcs.length - 1 && pcs[pi + 1] == '*') {//后面是* 可以删掉前面的
+                        dp[si][pi] = dp[si][pi + 2];
+                    } else {
+                        dp[si][pi] = false;
+                    }
+                }
+            }
+        }
+        return dp[0][0];
+    }
 }
