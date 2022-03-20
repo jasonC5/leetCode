@@ -4,6 +4,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class Code1 {
+    // HashSet
     public boolean divideArray(int[] nums) {
         Set<Integer> set = new HashSet<>();
         for (int num : nums) {

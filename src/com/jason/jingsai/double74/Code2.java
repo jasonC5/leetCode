@@ -1,6 +1,7 @@
 package com.jason.jingsai.double74;
 
 public class Code2 {
+    // 贪心
     public static long maximumSubsequenceCount(String text, String pattern) {
         // 1.原来有多少个子序列
         // 2.有多少个p[1],有多少个p[2]
@@ -15,6 +16,7 @@ public class Code2 {
             p2Count += text.charAt(i) == p[1] ? 1 : 0;
             leftP1[i] = i == 0 ? p1Count : (leftP1[i - 1] + (text.charAt(i) == p[0] ? 1 : 0));
         }
+        // 本来有多少对
         for (int i = length - 1; i > 0; i--) {
             if (text.charAt(i) == p[1]) {
                 curCount += leftP1[i - 1];

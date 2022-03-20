@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.util.PriorityQueue;
 
 public class Code3 {
+    // 堆
     public static int halveArray(int[] nums) {
         PriorityQueue<Double> heap = new PriorityQueue<>((d1, d2) -> d2.compareTo(d1));
         double sum = 0D;

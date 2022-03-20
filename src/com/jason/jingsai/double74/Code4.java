@@ -44,11 +44,13 @@ public class Code4 {
             return 0;
         }
         char[] chars = floor.toCharArray();
-        int[] postNum = new int[chars.length];//后面还有几块白色的
+        // 预处理：后面还有几块白色的
+        int[] postNum = new int[chars.length];
         postNum[chars.length - 1] = chars[chars.length - 1] == '1' ? 1 : 0;
         for (int i = chars.length - 2; i >= 0; i--) {
             postNum[i] += postNum[i + 1] + (chars[i] == '1' ? 1 : 0);
         }
+        // 动态规划
         int[][] dp = new int[numCarpets + 1][chars.length + 1];
         for (int i = 0; i < chars.length; i++) {
             dp[0][i] = postNum[i];
