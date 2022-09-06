@@ -35,8 +35,6 @@ public class LC828 {
     public static int uniqueLetterString2(String s) {
         int n = s.length(), ans = 0;
         int[] pre = new int[n], post = new int[n], preIdx = new int[26], postIdx = new int[26];
-        Arrays.fill(pre, -1);
-        Arrays.fill(post, n);
         Arrays.fill(preIdx, -1);
         Arrays.fill(postIdx, n);
         for (int i = 0; i < n; i++) {
