@@ -9,7 +9,7 @@ import java.util.Map;
  * @date 2022/9/19 9:12:00
  * @description
  */
-public class C1636 {
+public class LC1636 {
     public int[] frequencySort(int[] nums) {
         Map<Integer, Integer> countMap = new HashMap<>();
         for (int num : nums) {
